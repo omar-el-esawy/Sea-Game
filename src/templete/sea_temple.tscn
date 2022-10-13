@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Actors/fish.tscn" type="PackedScene" id=1]
+[ext_resource path="res://image/sea-underwater-ocean-bottom-with-seaweeds-marine-scene_53562-8210.jpg" type="Texture" id=2]
+[ext_resource path="res://src/Actors/enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/enemy.gd" type="Script" id=4]
+[ext_resource path="res://src/templete/sea_temple.gd" type="Script" id=5]
+[ext_resource path="res://Monkeys-Spinning-Monkeys.mp3" type="AudioStream" id=6]
+
+[node name="sea_temple" type="Node2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 957.382, 200.12, 750.836 ],
+"_edit_vertical_guides_": [ 1431.48, 401.016, 1100.49 ]
+}
+
+[node name="sea-underwater-ocean-bottom-with-seaweeds-marine-scene_53562-8210" type="Sprite" parent="."]
+position = Vector2( 714.539, 476.796 )
+scale = Vector2( 2.28614, 2.28614 )
+texture = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[node name="enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 273.751, 726.799 )
+script = ExtResource( 4 )
+
+[node name="fish" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1082.82, 319.012 )
+speed = Vector2( 2500, 2500 )
+
+[node name="Camera2D" parent="fish" index="1"]
+limit_left = 0
+limit_top = 0
+limit_right = 1435
+limit_bottom = 955
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="sea" parent="fish" index="3"]
+pitch_scale = 0.65
+autoplay = false
+attenuation = 6.49801
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[editable path="fish"]

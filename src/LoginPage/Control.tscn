@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://loginControl.gd" type="Script" id=1]
+[ext_resource path="res://image/close.png" type="Texture" id=2]
+[ext_resource path="res://image/intro.jpg" type="Texture" id=3]
+[ext_resource path="res://image/play.png" type="Texture" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_right = -3.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 523.721, 304.314 )
+scale = Vector2( 0.640973, 0.589571 )
+texture = ExtResource( 3 )
+
+[node name="play" type="Button" parent="."]
+margin_left = 584.804
+margin_top = 246.0
+margin_right = 956.804
+margin_bottom = 395.0
+size_flags_stretch_ratio = 0.0
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="close" type="Button" parent="."]
+margin_left = 584.0
+margin_top = 395.0
+margin_right = 1091.0
+margin_bottom = 572.0
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="play" to="." method="_on_login_button_up"]
+[connection signal="button_up" from="close" to="." method="_on_Button_button_up"]
